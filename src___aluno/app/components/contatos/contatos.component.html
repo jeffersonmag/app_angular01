@@ -1,0 +1,35 @@
+<h4>Ficha de contatos</h4>
+<div class="row">
+    <div class="col">
+        <span>Nome: </span>
+        <input type="text" class="form-control" [(ngModel)]="contato.nome"> <br /><br />
+        <span>E-mail: </span>
+        <input type="text" class="form-control" [(ngModel)]="contato.email"> <br /><br />
+        <span>Celular: </span>
+        <input type="text" class="form-control" [(ngModel)]="contato.celular"> <br /><br /><br />
+        <button class="btn btn-success btn-sm" (click)="inserirContato()">Incluir</button>
+        <button class="btn btn-danger btn-sm" (click)="limparContato()">Limpar</button><br /><br />
+        <div *ngIf="erro" class="alert alert-danger" role="alert">
+            {{ erro }}
+        </div>
+    </div>
+    <div class="col">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>E-mail</th>
+                    <th>Celular</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let ct of listaContatos" (click)="exibir(ct)">
+                    <td>{{ ct.nome }}</td>
+                    <td>{{ ct.email }}</td>
+                    <td>{{ ct.celular }}</td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+</div>

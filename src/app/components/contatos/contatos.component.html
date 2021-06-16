@@ -1,0 +1,37 @@
+<div class="container">
+    <h1 class="text-center">Ficha de Contatos</h1>
+    <div class="row">
+        <div class="col-6">
+            <div *ngIf="contatoSelecionado">
+                <div class="form-group">
+                    <label>Nome:</label>
+                    <input type="text" class="form-control"
+                        [(ngModel)]="contatoSelecionado.nome">
+                </div>
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input type="email" class="form-control"
+                    [(ngModel)]="contatoSelecionado.email">
+                </div>
+                <div class="form-group">
+                    <label>Celular:</label>
+                    <input type="text" class="form-control"
+                    [(ngModel)]="contatoSelecionado.celular">
+                </div>
+
+                <button type="button" (click)="incluir(contatoSelecionado)" class="btn btn-primary">Incluir Novo</button>
+            </div>
+        </div>
+        <div class="col-6">
+            
+            <ul class="list_group">
+                <li  *ngFor="let item of listaContatos"
+                (click)="selecionar(item)" class="list-group-item">
+                    <a [class.selecionado]="item === contatoSelecionado" href="#">{{item.nome}}</a>
+                </li>
+            </ul>
+            <button style="margin-left: 40px;" type="button" (click)="novo()" class="btn btn-primary">Novo Contato</button>
+        </div>
+    </div>
+
+</div>
